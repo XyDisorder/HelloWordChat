@@ -91,6 +91,10 @@ header h3 {
     text-align: right;
     width: 60%;
     float: right;
+    max-width: 70%;
+    min-width: 10%;
+    font-size: .85em;
+    animation: scaler 150ms ease-out;
 }
 
 .message .receiver {
