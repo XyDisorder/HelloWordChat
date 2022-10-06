@@ -5,10 +5,12 @@ function SendMessage(sender) {
         message = document.getElementById("text_user1").value;
         SendMessageToReceiver(message, "chatbox2");
         AddMessageForSender(message, "chatbox1");
+        ClearInputText(sender);
     } else if (sender === 2) {
         message = document.getElementById("text_user2").value;
         SendMessageToReceiver(message, "chatbox1");
         AddMessageForSender(message, "chatbox2");
+        ClearInputText(sender);
     }
 }
 
@@ -31,3 +33,10 @@ function AddMessageForSender(message, targetId) {
     box.appendChild(el);
 }
 
+function ClearInputText(sender) {
+    if (sender === 1) {
+        document.getElementById("text_user1").value = "";
+    } else if (sender === 2) {
+        document.getElementById("text_user2").value = "";
+    }
+}
