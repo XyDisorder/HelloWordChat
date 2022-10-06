@@ -89,7 +89,7 @@ header h3 {
     background-color: #e5eaec;
     color: #222;
     text-align: right;
-    width: 50%;
+    width: 60%;
     float: right;
 }
 
@@ -97,7 +97,7 @@ header h3 {
     background-color: #444;
     color: #fff;
     text-align: left;
-    width: 50%;
+    width: 60%;
     float: left;
     max-width: 70%;
     min-width: 10%;
