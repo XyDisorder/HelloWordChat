@@ -1,20 +1,20 @@
-function SendMessage(sender) {
+function sendMessage(sender) {
     let message = "";
 
     if (sender === 1) {
         message = document.getElementById("text_user1").value;
-        SendMessageToReceiver(message, "chatbox2");
-        AddMessageForSender(message, "chatbox1");
-        ClearInputText(sender);
+        sendMessageToReceiver(message, "chatbox2");
+        addMessageForSender(message, "chatbox1");
+        clearInputText(sender);
     } else if (sender === 2) {
         message = document.getElementById("text_user2").value;
-        SendMessageToReceiver(message, "chatbox1");
-        AddMessageForSender(message, "chatbox2");
-        ClearInputText(sender);
+        sendMessageToReceiver(message, "chatbox1");
+        addMessageForSender(message, "chatbox2");
+        clearInputText(sender);
     }
 }
 
-function SendMessageToReceiver(message, targetId) {
+function sendMessageToReceiver(message, targetId) {
     // create a new element
     const el = document.createElement('li');
     el.classList.add('receiver');
@@ -25,7 +25,7 @@ function SendMessageToReceiver(message, targetId) {
     box.appendChild(el);
 }
 
-function AddMessageForSender(message, targetId) {
+function addMessageForSender(message, targetId) {
     const el = document.createElement('li');
     el.classList.add('sender');
     el.textContent = message;
@@ -33,7 +33,7 @@ function AddMessageForSender(message, targetId) {
     box.appendChild(el);
 }
 
-function ClearInputText(sender) {
+function clearInputText(sender) {
     if (sender === 1) {
         document.getElementById("text_user1").value = "";
     } else if (sender === 2) {
