@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Chat</title>
+    <!-- add css and js files -->
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/chatengine.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div style="display:flex; flex-direction: row;">
+
+    <div class="chat">
+        <div id ="chatbox1" class="chat-box">
+            <div id="box1"></div>
+
+            <div class="chat-footer">
+                <input type="text" id="text_user1" class="chat-input1" placeholder="Type your message here...">
+                <button id="btn1" onclick="SendMessage(1)">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="chat">
+        <div id ="chatbox2" class="chat-box">
+            <div id="box2"></div>
+
+            <div class="chat-footer">
+
+            <input type="text" id="text_user2" class="chat-input2" placeholder="Type your message here...">
+            <button id="btn2" onclick="SendMessage(2)" >Send</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+
+</body>
+</html>
