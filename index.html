@@ -6,95 +6,55 @@
     <title>Hello Chat for Lucca Company</title>
     <!-- add css and js files -->
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/chatengine.js"></script>
+    <script src="js/chatEngine.js"></script>
 </head>
 
 <body>
 <div class="container">
     <div style="display:flex; flex-direction: row;">
 
-<!-- First User -->
+        <!-- First User -->
         <div class="pagewrap">
             <header>
-        <h3 class="name">John Doe</h3>
-    </header>
+                <h3 class="name">John Doe</h3>
+            </header>
 
-            <section class="chatbox"  id ="chatbox1">
-                <ul id="message">
-                    <div class="time"><p></p></div>
-                    <div class="receiver"><p>So enjoy if I work at Lucca Company !.
-                    </p></div>
-                    <li class="fake-line2">Yeah it seems it's a great place to be :). </li>
-                    <li class="receiver" id="box1" />
-
+            <section class="chatbox">
+                <ul class="message" id="chatbox1">
+                    <li class="receiver"><p>So enjoy if I work at Lucca Company !.
+                    </p></li>
+                    <li class="sender">Yeah it seems it's a great place to be :).</li>
                 </ul>
             </section>
-    <section class="reply" id="reply">
-        <form  onsubmit="return false;">
-            <input type="text" id="text_user1" placeholder="Type a message.">
-            <button id="btn1" onclick="SendMessage(1)">Send</button>
-        </form>
-    </section>
-</div>
-<!-- End of First User -->
 
-<!-- Second User -->
-<div class="pagewrap">
-    <header>
-        <h3 class="name">Sarah Bourgeois</h3>
-    </header>
-
-    <div class="chatbox" id ="chatbox2">
-        <ul id="message">
-            <div class="time"><p></p></div>
-            <div class="receiver"><p>So enjoy if I work at Lucca Company !.</p>
-            </div>
-
-            <li class="fake-line2">Yeah it seems it's a great place to be :). </li>
-        </ul>
-        <div id="box2"></div>
-
-    </div>
-
-    <section class="reply" id="reply">
-        <form  onsubmit="return false;">
-            <input type="text" id="text_user2" placeholder="Type a message.">
-            <button id="btn2" onclick="SendMessage(2)">Send</button>
-        </form>
-    </section>
-</div>
-<!-- End of Second User -->
-    </div>
-</div>
-<!--
-<div class="container">
-    <div style="display:flex; flex-direction: row;">
-
-    <div class="chat">
-        <div id ="chatbox1" class="chat-box">
-            <div id="box1"></div>
-
-            <div class="chat-footer">
-                <input type="text" id="text_user1" class="chat-input1" placeholder="Type your message here...">
+            <section class="reply" id="reply">
+                <input type="text" id="text_user1" placeholder="Type a message.">
                 <button id="btn1" onclick="SendMessage(1)">Send</button>
-            </div>
+            </section>
         </div>
-    </div>
+        <!-- End of First User -->
 
-    <div class="chat">
-        <div id ="chatbox2" class="chat-box">
-            <div id="box2"></div>
+        <!-- Second User -->
+        <div class="pagewrap">
+            <header>
+                <h3 class="name">Matt</h3>
+            </header>
 
-            <div class="chat-footer">
-
-            <input type="text" id="text_user2" class="chat-input2" placeholder="Type your message here...">
-            <button id="btn2" onclick="SendMessage(2)" >Send</button>
+            <div class="chatbox">
+                <ul class="message" id="chatbox2">
+                    <li class="receiver">So enjoy if I work at Lucca Company !.</li>
+                    <li class="sender">Yeah it seems it's a great place to be :).</li>
+                </ul>
             </div>
+
+            <section class="reply" id="reply">
+                <input type="text" id="text_user2" placeholder="Type a message.">
+                <button id="btn2" onclick="SendMessage(2)">Send</button>
+            </section>
         </div>
-    </div>
+        <!-- End of Second User -->
+
     </div>
 </div>
--->
-
 </body>
 </html>

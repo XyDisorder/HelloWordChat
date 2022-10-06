@@ -1,4 +1,4 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -9,28 +9,33 @@ html {
     overflow: scroll;
     overflow-x: hidden;
 }
+
 ::-webkit-scrollbar {
     width: 0px;
-    background:  transparent;
+    background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
     background: transparent;
 }
 
-body{
+/* Body config */
+body {
     font: normal 16px/1.5 'Libre Franklin', Helvetica, Georgia, sans-serif, serif;
 background-color-gradient(blue, green);
     height: 100vh;
     background: linear-gradient(#e8e6fd, #fff);
 }
 
-.pagewrap{
+/* Main page agencement */
+.pagewrap {
     max-width: 360px;
     margin: 3vh auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
 
-header{
+/* Header management */
+header {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -39,10 +44,18 @@ header{
     background-color: #f5f8f9;
 }
 
-header a{color: inherit; text-decoration: none; font-size: 1.5em; vertical-align: middle;}
-header h3{font-weight: 400;}
+header a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 1.5em;
+    vertical-align: middle;
+}
 
-.chatbox{
+header h3 {
+    font-weight: 400;
+}
+
+.chatbox {
     background-color: #f5f8f9;
     padding: 10px 20px;
     width: 100%;
@@ -50,7 +63,7 @@ header h3{font-weight: 400;}
     overflow-y: scroll;
 }
 
-.time{
+.time {
     text-align: center;
     font-size: .70em;
     color: #666;
@@ -59,109 +72,42 @@ header h3{font-weight: 400;}
     word-spacing: 2px;
 }
 
-#message{
+/* Message box management*/
+.message {
     width: 100%;
 }
 
-.receiver{
-    max-width: 70%;
-    min-width: 10%;
+.message li {
     display: inline-block;
-    font-size: .85em;
-    position: relative;
-    margin: 20% 0 3% 0;
-    animation: scaler 150ms ease-out;
-}
-
-.receiver p:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: -10px;
-    top: 0;
-    width: 0;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: #444 transparent;
-}
-
-.receiver p{
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
     border-radius: 10px;
+    padding: 5px 5px;
+    margin: 5px 5px;
     word-wrap: break-word;
-    font-weight: 500;
 }
 
-.addMessage{
-    max-width: 70%;
-    min-width: 10%;
-    display: inline-block;
-    font-size: .85em;
-    position: relative;
-    margin: 20% 0 3% 0;
-    animation: scaler 150ms ease-out;
-}
-
-.addMessage p:after {
-    content: "";
-    display: block;
-    position: absolute;
-    left: -10px;
-    top: 0;
-    width: 0;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: #444 transparent;
-}
-
-.addMessage p{
-    background-color: #444;
-    color: #fff;
-    padding: 10px;
-    border-radius: 10px;
-    word-wrap: break-word;
-    font-weight: 500;
-}
-
-#message:before, #message:after{
-    content: "";
-    display: block;
-    clear: both;
-}
-
-#message li{
+.message .sender {
     background-color: #e5eaec;
     color: #222;
-    font-size: .85em;
-    border-radius: 10px;
-    position: relative;
-    padding: 10px;
-    margin: 1% 0;
+    text-align: right;
+    width: 50%;
+    float: right;
+}
+
+.message .receiver {
+    background-color: #444;
+    color: #fff;
+    text-align: left;
+    width: 50%;
+    float: left;
     max-width: 70%;
     min-width: 10%;
-    float: right;
-    word-wrap: break-word;
-    clear: both;
+    font-size: .85em;
     animation: scaler 150ms ease-out;
-    font-weight: 500;
+
 }
 
-#message .fake-line2:after{
-    content: "";
-    display: block;
-    position: absolute;
-    right: -10px;
-    top: 0;
-    width: 0;
-    border-width: 10px 10px 0;
-    border-style: solid;
-    border-color: #e5eaec transparent;
-}
-
-
-.reply{
+/* Reply box management*/
+.reply {
     padding: 15px 0;
     background-color: #f5f8f9;
     display: -webkit-box;
@@ -172,14 +118,14 @@ header h3{font-weight: 400;}
     justify-content: space-between;
 }
 
-.reply:before, .reply:after{
+.reply:before, .reply:after {
     content: "";
     display: block;
     clear: both;
 }
 
-
-input{
+/* Input text management*/
+input {
     width: 72%;
     padding: 10px;
     border: none;
@@ -187,11 +133,12 @@ input{
     background-color: inherit;
 }
 
-input:focus, button:focus{
+input:focus, button:focus {
     outline: 0;
 }
 
-button{
+/* Button send management*/
+button {
     background-color: #222;
     color: #fff;
     padding: 15px 10px;
@@ -202,36 +149,19 @@ button{
     letter-spacing: 1.2px;
 }
 
-.scroll{
+/* UI management */
+.scroll {
     position: absolute;
     bottom: 0;
 }
 
-
-
-
-@keyframes scaler{
-    0%{transform: scale(0)}
-    100%{transform: scale(1)}
+@keyframes scaler {
+    0% {
+        transform: scale(0)
+    }
+    100% {
+        transform: scale(1)
+    }
 }
 
-
-
-/* Language: css */
-/*
-.container {
-    display: block;
-    width: 500px;
-    margin-top: 50px;
-    margin-left: 50px;
-}
-
-.chat {
-    display:flex; flex-direction: row;
-    display: block;
-    width: 50%;
-    height: 250px;
-    border: 1px solid #000;
-    background-color: darkcyan;
-}*/
 
