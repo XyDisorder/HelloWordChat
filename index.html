@@ -3,14 +3,70 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Hello Chat</title>
+    <title>Hello Chat for Lucca Company</title>
     <!-- add css and js files -->
     <link rel="stylesheet" href="css/style.css">
     <script src="js/chatengine.js"></script>
 </head>
 
 <body>
+<div class="container">
+    <div style="display:flex; flex-direction: row;">
 
+<!-- First User -->
+        <div class="pagewrap">
+            <header>
+        <h3 class="name">John Doe</h3>
+    </header>
+
+            <section class="chatbox"  id ="chatbox1">
+                <ul id="message">
+                    <div class="time"><p></p></div>
+                    <div class="receiver"><p>So enjoy if I work at Lucca Company !.
+                    </p></div>
+                    <li class="fake-line2">Yeah it seems it's a great place to be :). </li>
+                    <li class="receiver" id="box1" />
+
+                </ul>
+            </section>
+    <section class="reply" id="reply">
+        <form  onsubmit="return false;">
+            <input type="text" id="text_user1" placeholder="Type a message.">
+            <button id="btn1" onclick="SendMessage(1)">Send</button>
+        </form>
+    </section>
+</div>
+<!-- End of First User -->
+
+<!-- Second User -->
+<div class="pagewrap">
+    <header>
+        <h3 class="name">Sarah Bourgeois</h3>
+    </header>
+
+    <div class="chatbox" id ="chatbox2">
+        <ul id="message">
+            <div class="time"><p></p></div>
+            <div class="receiver"><p>So enjoy if I work at Lucca Company !.</p>
+            </div>
+
+            <li class="fake-line2">Yeah it seems it's a great place to be :). </li>
+        </ul>
+        <div id="box2"></div>
+
+    </div>
+
+    <section class="reply" id="reply">
+        <form  onsubmit="return false;">
+            <input type="text" id="text_user2" placeholder="Type a message.">
+            <button id="btn2" onclick="SendMessage(2)">Send</button>
+        </form>
+    </section>
+</div>
+<!-- End of Second User -->
+    </div>
+</div>
+<!--
 <div class="container">
     <div style="display:flex; flex-direction: row;">
 
@@ -38,7 +94,7 @@
     </div>
     </div>
 </div>
-
+-->
 
 </body>
 </html>
