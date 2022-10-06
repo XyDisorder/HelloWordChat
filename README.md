@@ -21,6 +21,10 @@ No framework use ! Indeed
 I use only this three languages to develop this project.
 Indeed, it was developped for a test in Lucca company, and I had to develop a chat discussion without any framework or library, and without server side code.
 
+## To improve 
+
+- Implement functionnalities to add a new user in the chat discussion and be more generic
+- Add date and hour when a new message is send 
 
 ## Installation
 
