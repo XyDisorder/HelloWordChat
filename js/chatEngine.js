@@ -1,42 +1,49 @@
-function sendMessage(sender) {
-    let message = "";
+const sender = {
+    messageInputId: "text_user1",
+    receiverChatboxId: "chatbox2",
+    senderChatboxId: "chatbox1",
+    message: '',
+    displayMessage: function () {
+        displayMessage(this.message, this.senderChatboxId, 'sender', this.messageInputId);
+        displayMessage(this.message, this.receiverChatboxId, 'receiver');
+    } ,
+};
 
-    if (sender === 1) {
-        message = document.getElementById("text_user1").value;
-        sendMessageToReceiver(message, "chatbox2");
-        addMessageForSender(message, "chatbox1");
-        clearInputText(sender);
-    } else if (sender === 2) {
-        message = document.getElementById("text_user2").value;
-        sendMessageToReceiver(message, "chatbox1");
-        addMessageForSender(message, "chatbox2");
-        clearInputText(sender);
+const receiver = {
+    messageInputId: "text_user2",
+    receiverChatboxId: "chatbox1",
+    senderChatboxId: "chatbox2",
+    message: '',
+    displayMessage: function () {
+        displayMessage(this.message, this.senderChatboxId, 'sender', this.messageInputId);
+        displayMessage(this.message, this.receiverChatboxId, 'receiver');
+    },
+};
+
+function sendNewMessage(fromSender) {
+    const senderUser = Object.create(sender);
+    const receiverUser = Object.create(receiver);
+
+    if (fromSender === 1) {
+        senderUser.message = document.getElementById(senderUser.messageInputId).value;
+        senderUser.displayMessage();
+    } else if (fromSender === 2) {
+        receiverUser.message = document.getElementById(receiverUser.messageInputId).value;
+        receiverUser.displayMessage();
     }
 }
 
-function sendMessageToReceiver(message, targetId) {
-    // create a new element
+function displayMessage(message, targetId, className, textInputId) {
     const el = document.createElement('li');
-    el.classList.add('receiver');
-    // Add text content to element
-    el.textContent = message;
-    // add element to DOM
-    const box = document.getElementById(targetId);
-    box.appendChild(el);
-}
-
-function addMessageForSender(message, targetId) {
-    const el = document.createElement('li');
-    el.classList.add('sender');
+    el.classList.add(className);
     el.textContent = message;
     const box = document.getElementById(targetId);
     box.appendChild(el);
+
+    clearInputText(textInputId);
 }
 
-function clearInputText(sender) {
-    if (sender === 1) {
-        document.getElementById("text_user1").value = "";
-    } else if (sender === 2) {
-        document.getElementById("text_user2").value = "";
-    }
+
+function clearInputText(targetId) {
+        document.getElementById(targetId).value = "";
 }
