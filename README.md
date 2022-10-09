@@ -18,7 +18,7 @@ Indeed, it was developped for a test in Lucca company, and I had to develop a ch
 
 
 **Good to know** : 
-- I continue this project just for fun after. 
+- I will continue this project just for fun after. 
 The goal will be to generate IA conversation.
 
 
