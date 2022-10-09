@@ -29,7 +29,7 @@ background-color-gradient(blue, green);
 
 /* Main page agencement */
 .pagewrap {
-    max-width: 360px;
+    max-width: 380px;
     margin: 3vh auto;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 }
@@ -40,7 +40,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 20px 15px;
-    color: #666;
+    color: #1e0707;
     background-color: #f5f8f9;
 }
 
@@ -55,13 +55,24 @@ header h3 {
     font-weight: 400;
 }
 
+/*head of website*/
+.header-content {
+    padding: 0 15px;
+    max-width:2000px;
+    margin-top:166px;
+}
+
+/* chatbox content management */
 .chatbox {
     background-color: #f5f8f9;
     padding: 10px 20px;
-    width: 100%;
+    width: 380px;
     height: 350px;
-    overflow-y: scroll;
+    overflow: auto;
+    overscroll-behavior-y: contain;
 }
+
+/*    overflow-y: scroll;*/
 
 .time {
     text-align: center;
@@ -85,7 +96,7 @@ header h3 {
     word-wrap: break-word;
 }
 
-.message .sender {
+.message .firstUser {
     background-color: #e5eaec;
     color: #222;
     text-align: right;
@@ -94,11 +105,10 @@ header h3 {
     max-width: 70%;
     min-width: 10%;
     font-size: .85em;
-    animation: scaler 150ms ease-out;
 }
 
-.message .receiver {
-    background-color: #444;
+.message .secondUser {
+    background-color: #0073B1;
     color: #fff;
     text-align: left;
     width: 60%;
@@ -106,9 +116,26 @@ header h3 {
     max-width: 70%;
     min-width: 10%;
     font-size: .85em;
-    animation: scaler 150ms ease-out;
-
 }
+
+.message .tappingTextSecondUser {
+    text-align: left;
+    width: 38%;
+    float: left;
+    height: 38px;
+    background: url(https://raw.githubusercontent.com/reachtokish/typing-animation/master/giphy.gif) no-repeat;
+    background-size: contain;
+}
+
+.message .tappingTextFirstUser {
+    text-align: left;
+    width: 38%;
+    float: left;
+    height: 38px;
+    background: url(https://raw.githubusercontent.com/reachtokish/typing-animation/master/giphy.gif) no-repeat;
+    background-size: contain;
+}
+
 
 /* Reply box management*/
 .reply {
@@ -151,7 +178,13 @@ button {
     border: none;
     cursor: pointer;
     letter-spacing: 1.2px;
+    opacity: 1;
+    transition: 0.3s;
 }
+
+button:hover {opacity: 0.6}
+
+
 
 /* UI management */
 .scroll {
@@ -159,13 +192,10 @@ button {
     bottom: 0;
 }
 
-@keyframes scaler {
-    0% {
-        transform: scale(0)
-    }
-    100% {
-        transform: scale(1)
-    }
-}
+
+
+
+/******** ANIMATION ***************/
+
 
 

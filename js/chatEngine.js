@@ -1,49 +1,134 @@
-const sender = {
+const firstUser = {
     messageInputId: "text_user1",
-    receiverChatboxId: "chatbox2",
-    senderChatboxId: "chatbox1",
+    userBoxToSendMessage: "chatbox2",
+    userBoxForReceiveMessageHimself: "chatbox1",
+    firstBoxId: 'chatboxId',
+    secondBoxId: 'chatboxId2',
+    ownClassName: 'firstUser',
+    classNameToSendMessage : 'secondUser',
     message: '',
-    displayMessage: function () {
-        displayMessage(this.message, this.senderChatboxId, 'sender', this.messageInputId);
-        displayMessage(this.message, this.receiverChatboxId, 'receiver');
-    } ,
+    typingClass: 'tappingTextFirstUser',
+    typingClass2: 'tappingTextSecondUser',
+    countTyping: 0
 };
 
-const receiver = {
+const secondUser = {
     messageInputId: "text_user2",
-    receiverChatboxId: "chatbox1",
-    senderChatboxId: "chatbox2",
+    userBoxToSendMessage: "chatbox1",
+    userBoxForReceiveMessageHimself: "chatbox2",
+    firstBoxId: "chatboxId2",
+    secondBoxId: 'chatboxId',
+    ownClassName: 'firstUser',
+    classNameToSendMessage : 'secondUser',
+    typingClass: 'tappingTextSecondUser',
+    typingClass2: 'tappingTextFirstUser',
     message: '',
-    displayMessage: function () {
-        displayMessage(this.message, this.senderChatboxId, 'sender', this.messageInputId);
-        displayMessage(this.message, this.receiverChatboxId, 'receiver');
-    },
+    countTyping: 0
 };
 
-function sendNewMessage(fromSender) {
-    const senderUser = Object.create(sender);
-    const receiverUser = Object.create(receiver);
+let timer;
+let first = '';
+const sender = Object.create(firstUser);
+const receiver = Object.create(secondUser);
 
-    if (fromSender === 1) {
-        senderUser.message = document.getElementById(senderUser.messageInputId).value;
-        senderUser.displayMessage();
-    } else if (fromSender === 2) {
-        receiverUser.message = document.getElementById(receiverUser.messageInputId).value;
-        receiverUser.displayMessage();
+const Actions = {
+    TypingNotification: "typingNotification",
+    SendMessage: "sendMessage",
+}
+
+const Tags = {
+    Li: 'li'
+}
+
+function launchAction(actionType, fromSender) {
+    if(fromSender === 1) {first = sender;}
+    if (fromSender === 2) {first = receiver;}
+
+    switch (actionType) {
+        case Actions.TypingNotification:
+            tappingNotification();
+            break;
+        case Actions.SendMessage:
+            sendNewMessage();
+            break;
+        default:
+            console.log(`error`);
     }
 }
 
-function displayMessage(message, targetId, className, textInputId) {
-    const el = document.createElement('li');
+function tappingNotification() {
+    isTyping(first.typingClass, first.typingClass2);
+    if (first.countTyping === 0) {
+        first.message = '';
+        addNewElementToDom(Tags.Li, first.typingClass, first.message, first.userBoxToSendMessage);
+        scrollDown(document.getElementById(first.secondBoxId), document.getElementById(first.userBoxToSendMessage));
+        first.countTyping = 1;
+    }
+}
+
+function sendNewMessage() {
+    first.countTyping = 0;
+    removeTypingNotification(first.typingClass)
+    first.message = document.getElementById(first.messageInputId).value;
+        if (first.message !== '') {
+            displayMessage();
+    }
+}
+
+function displayMessage() {
+    let messageToReceiver = addNewElementToDom(Tags.Li, first.classNameToSendMessage, first.message, first.userBoxToSendMessage);
+    let messageToSenderHimself = addNewElementToDom(Tags.Li, first.ownClassName, first.message, first.userBoxForReceiveMessageHimself);
+
+    // get element for each user message box
+    let chatterbox = document.getElementById(first.secondBoxId);
+    let chatterbox2 = document.getElementById(first.firstBoxId);
+
+    //scroll down when message is display
+    scrollDown(chatterbox2, messageToSenderHimself);
+    scrollDown(chatterbox, messageToReceiver);
+
+    // clear message just send
+    clearInputText(first.messageInputId);
+}
+
+function addNewElementToDom(tagToCreate, className, message, targetId) {
+    const el = document.createElement(tagToCreate); //li
     el.classList.add(className);
     el.textContent = message;
     const box = document.getElementById(targetId);
     box.appendChild(el);
-
-    clearInputText(textInputId);
+    return box;
 }
 
+function scrollDown(targetTag, box) {
+    targetTag.scrollTop = box.scrollHeight;
+    targetTag.scrollTop = box.scrollHeight;
+}
 
 function clearInputText(targetId) {
-        document.getElementById(targetId).value = "";
+    document.getElementById(targetId).value = "";
 }
+
+function isTyping(className, secondClassName) {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+        removeTypingNotification(className, secondClassName);
+    }, 5000);
+}
+
+function removeTypingNotification(className, secondClassName) {
+    let typingNotification = document.getElementsByClassName(className);
+    let typingNotification2 = document.getElementsByClassName(secondClassName);
+
+    if (typingNotification.length > 0) {
+        typingNotification[0].remove();
+    }
+    if (typingNotification2.length > 0) {
+        typingNotification2[0].remove();
+    }
+}
+
+
+
+
+

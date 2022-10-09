@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Chat for Lucca Company</title>
     <!-- add css and js files -->
     <link rel="stylesheet" href="css/style.css">
@@ -10,7 +11,14 @@
 </head>
 
 <body>
-<div class="container">
+
+<div class="header-content">
+    <h1 id="mainTitle"></h1>
+</div>
+
+
+<div class="container" style="resize: none">
+
     <div style="display:flex; flex-direction: row;">
 
         <!-- First User -->
@@ -19,20 +27,20 @@
                 <h3 class="name">Joe</h3>
             </header>
 
-            <section class="chatbox">
-                <ul class="message" id="chatbox1">
-                    <li class="receiver"><p>So enjoy if I work at Lucca Company !
-                    </p></li>
-                    <li class="sender">Yeah it seems it's a great place to be :).</li>
-                </ul>
-            </section>
 
-            <section class="reply" id="reply">
-                <input type="text" id="text_user1" placeholder="Type a message.">
-                <button id="btn1" onclick="sendNewMessage(1)">Send</button>
-            </section>
-        </div>
-        <!-- End of First User -->
+            <section class="chatbox" id="chatboxId" style="display:flex; flex-direction: row;">
+                <ul class="message" id="chatbox1">
+                       <li class="secondUser" style="visibility: hidden"  ></li>
+                       <li class="firstUser" style="visibility: hidden" ></li>
+                   </ul>
+               </section>
+
+               <section class="reply" id="reply">
+                   <input type="text" id="text_user1" oninput="launchAction(Actions.TypingNotification, 1)" placeholder="Type a message.">
+                   <button id="btn1" onclick="launchAction(Actions.SendMessage, 1)">Send</button>
+               </section>
+           </div>
+           <!-- End of First User -->
 
         <!-- Second User -->
         <div class="pagewrap">
@@ -40,19 +48,19 @@
                 <h3 class="name">Matt</h3>
             </header>
 
-            <div class="chatbox">
+            <div class="chatbox" id="chatboxId2">
                 <ul class="message" id="chatbox2">
-                    <li class="sender">So enjoy if I work at Lucca Company !</li>
-                    <li class="receiver">Yeah it seems it's a great place to be :).</li>
-                </ul>
-            </div>
+                     <li class="firstUser" style="visibility: hidden" ></li>
+                     <li class="secondUser" style="visibility: hidden" ></li>
+                 </ul>
+             </div>
 
-            <section class="reply" id="reply">
-                <input type="text" id="text_user2" placeholder="Type a message.">
-                <button id="btn2" onclick="sendNewMessage(2)">Send</button>
-            </section>
-        </div>
-        <!-- End of Second User -->
+             <section class="reply" id="reply">
+                 <input type="text" id="text_user2" oninput="launchAction(Actions.TypingNotification, 2)"  placeholder="Type a message.">
+                 <button id="btn2" onclick="launchAction(Actions.SendMessage, 2)">Send</button>
+             </section>
+         </div>
+         <!-- End of Second User -->
 
     </div>
 </div>
