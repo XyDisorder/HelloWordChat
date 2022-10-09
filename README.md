@@ -16,9 +16,21 @@ A little chat discussion.
 I use only this three languages to develop this project.
 Indeed, it was developped for a test in Lucca company, and I had to develop a chat discussion without any framework or library, and without server side code.
 
-## To improve 
 
-- Implement functionnalities to add a new user in the chat discussion and be more generic
+**Good to know** : 
+- I continue this project just for fun after. 
+The goal will be to generate IA conversation.
+
+
+## Features
+
+- Send a message from John or From Matt and display each one in the right chat box.
+- Add an animation when a user is writting.
+- Manage the UI Display with an automatic scroll when we receive a message
+
+## To improve
+
+- Implement functionnalities to add a new user in the chat discussion 
 - Add date and hour when a new message is send 
 
 ## Installation
