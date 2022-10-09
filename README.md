@@ -36,6 +36,7 @@ The goal will be to generate IA conversation.
 ## Installation
 
 You can clone this repository, go inside the folder and open the index.html file in your browser.
+ 
 
 
 ### Usage
