@@ -45,7 +45,7 @@ You can send message from John Doe or from Matt.
 
 Example :
 
-![](img/project_screenshot.png)
+![](img/project_screenshot1.png)
 
 ## Versions
 
