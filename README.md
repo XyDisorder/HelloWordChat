@@ -40,7 +40,7 @@ You can clone this repository, go inside the folder and open the index.html file
 
 ### Usage
 
-You can send message from John Doe or from Matt.
+You can send message from John Doe or from Matt. 
 
 Example :
 
