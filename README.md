@@ -14,7 +14,7 @@ A little chat discussion.
 * [CSS](https://developer.mozilla.org/fr/docs/Web/CSS) - CSS is a language that describes the presentation of HTML and XML documents.
 
 I use only this three languages to develop this project.
-Indeed, it was developped for a test in Lucca company, and I had to develop a chat discussion without any framework or library, and without server side code.
+ I love to develop sometimeswithout any framework or library, and without server side code.
 
 
 **Good to know** : 
